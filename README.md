@@ -28,13 +28,13 @@ QUALITY=80                  # WebP conversion quality (0-100, default: 80)
 ## Usage
 
 1. Set the source and destination directories in the script
-2. Make the script executable:
+2. Make the `webp.sh` executable:
    ```
-   chmod +x script_name.sh
+   chmod +x webp.sh
    ```
 3. Run the script:
    ```
-   ./script_name.sh
+   ./webp.sh
    ```
 
 ## Output
