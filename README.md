@@ -6,7 +6,6 @@ A bash script that converts image files (PNG, JPG, JPEG) to WebP format.
 ## Prerequisites
 
 - `cwebp` command-line tool
-- GNU Parallel (for parallel processing)
 
 ## Configuration
 
@@ -22,7 +21,6 @@ QUALITY=80                  # WebP conversion quality (0-100, default: 80)
 
 - Converts PNG, JPG, and JPEG images to WebP format
 - Skips already converted files
-- Processes files in parallel for better performance
 - Creates destination directory if it doesn't exist
 
 ## Usage

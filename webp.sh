@@ -1,13 +1,10 @@
 #!/bin/bash
 
 # 変換先ディレクトリ
-SOURCE_DIR="/your/dir/path"
+SOURCE_DIR="/var/www/html/soulmining/src/uploads"
 
 # WebP出力先ディレクトリ
-DEST_DIR="/your/dir/path"
-
-# 変換対象の拡張子
-EXTENSIONS=("png" "jpg" "jpeg")
+DEST_DIR="/var/www/html/soulmining/src/uploads"
 
 # WebPの品質設定 (0-100)
 QUALITY=80
@@ -33,7 +30,7 @@ process_file() {
 
     # WebPに変換
     cwebp -q $QUALITY "$file" -o "$dest_file"
-    
+
     if [ $? -eq 0 ]; then
         echo "変換成功: $filename -> ${name}.webp"
     else
@@ -42,7 +39,9 @@ process_file() {
 }
 
 # メイン処理
-find "$SOURCE_DIR" -type f -name "*.[pjgJG]" | parallel --jobs 4 process_file {}
+find "$SOURCE_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) | while read -r file; do
+    process_file "$file"
+done
 
 echo "処理完了"
 
